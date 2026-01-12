@@ -22,8 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.marksapplw.Data.model.Exam
-import com.example.marksapplw.Data.repository.QuestionRepo
-import com.example.marksapplw.Greeting
 import com.example.marksapplw.ui.theme.MarksAppLWTheme
 import com.example.marksapplw.viewModels.HomeViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -40,7 +38,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Exam Prep") }
+                title = { Text("Exam Preparation") }
             )
         }
     ) { paddingValues ->
