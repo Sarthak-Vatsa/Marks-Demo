@@ -27,6 +27,7 @@ import com.example.marksapplw.Greeting
 import com.example.marksapplw.ui.theme.MarksAppLWTheme
 import com.example.marksapplw.viewModels.HomeViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.marksapplw.Navigation.Routes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,7 +55,7 @@ fun HomeScreen(
                 ExamCard(
                     exam = exam,
                     onClick = {
-                        navController.navigate("questions/${exam.id}")
+                        navController.navigate("${Routes.QUESTIONS}/${exam.id}")
                     }
                 )
             }

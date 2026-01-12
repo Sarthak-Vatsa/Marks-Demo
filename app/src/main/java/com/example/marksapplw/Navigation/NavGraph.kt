@@ -3,28 +3,58 @@ package com.example.marksapplw.Navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.marksapplw.UserInterface.home.HomeScreen
 import com.example.marksapplw.UserInterface.quesDetail.QuestionDetailScreen
 import com.example.marksapplw.UserInterface.questions.QuestionsScreen
 
 @Composable
-fun AppNavGraph(navController: NavHostController) {
+fun AppNavGraph(
+    navController: NavHostController
+) {
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = Routes.HOME
     ) {
-        composable("home") {
+
+        // Home → Exams
+        composable(Routes.HOME) {
             HomeScreen(navController)
         }
 
-//        composable("questions/{examId}") {
-//            QuestionsScreen(navController)
-//        }
-//
-//        composable("detail/{questionId}") {
-//            QuestionDetailScreen()
-//        }
+        // Exams → Questions
+        composable(
+            route = "${Routes.QUESTIONS}/{examId}",
+            arguments = listOf(
+                navArgument("examId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val examId = backStackEntry.arguments?.getString("examId") ?: return@composable
+
+            QuestionsScreen(
+                navController = navController,
+                examId = examId
+            )
+        }
+
+        // Questions → Question Detail
+        composable(
+            route = "${Routes.QUESTION_DETAIL}/{questionId}",
+            arguments = listOf(
+                navArgument("questionId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val questionId =
+                backStackEntry.arguments?.getString("questionId") ?: return@composable
+
+            QuestionDetailScreen(
+                navController = navController,
+                questionId = questionId
+            )
+        }
     }
 }
+

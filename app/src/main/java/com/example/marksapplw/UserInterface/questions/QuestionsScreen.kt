@@ -31,6 +31,7 @@ import com.example.marksapplw.Data.model.Question
 import com.example.marksapplw.viewModels.QuestionsViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
+import com.example.marksapplw.Navigation.Routes
 import com.example.marksapplw.UserInterface.home.HomeScreen
 import com.example.marksapplw.ui.theme.MarksAppLWTheme
 
@@ -76,7 +77,9 @@ fun QuestionsScreen(
                     questionNumber = index + 1,
                     question = question,
                     onClick = {
-                        navController.navigate("detail/${question.id}")
+                        navController.navigate(
+                            "${Routes.QUESTION_DETAIL}/${question.id}"
+                        )
                     }
                 )
             }
