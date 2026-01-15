@@ -11,10 +11,14 @@ import com.example.marksapplw.UserInterface.home.HomeScreen
 import com.example.marksapplw.UserInterface.quesDetail.QuestionDetailScreen
 import com.example.marksapplw.UserInterface.questions.QuestionsScreen
 
-@Composable
+@Composable //so that it can react to recomposition
 fun AppNavGraph(
     navController: NavHostController
 ) {
+    //NavHost: A router + screen container
+    //It listens to navigation events
+    //It decides which composable to show
+    //It manages the back stack
     NavHost(
         navController = navController,
         startDestination = Routes.HOME
@@ -33,6 +37,10 @@ fun AppNavGraph(
             )
         ) { backStackEntry ->
             val examId = backStackEntry.arguments?.getString("examId") ?: return@composable
+
+            //return@composable?
+            //Stops composition
+            //Avoids rendering invalid UI
 
             QuestionsScreen(
                 navController = navController,
