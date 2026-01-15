@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,11 +54,14 @@ fun HomeScreen(
 
         // Header
         Text(
-            text = "Welcome to Demo App 👋",
+            text = "Welcome to PrepPro 👋",
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
-            color = Primary
+            color = Primary,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
         )
+
 
         Spacer(Modifier.height(6.dp))
 
