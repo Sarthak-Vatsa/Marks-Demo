@@ -9,3 +9,8 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+val Background = Color(0xFFF9FAFB)   // warm off-white
+val Primary = Color(0xFF0F172A)      // near-black
+val Accent = Color(0xFF16A34A)       // green
+val CardBg = Color(0xFFFFFFFF)

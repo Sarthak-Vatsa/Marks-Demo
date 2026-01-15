@@ -1,9 +1,12 @@
 package com.example.marksapplw.UserInterface.home
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,6 +33,10 @@ import com.example.marksapplw.ui.theme.MarksAppLWTheme
 import com.example.marksapplw.viewModels.HomeViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.marksapplw.Navigation.Routes
+import com.example.marksapplw.ui.theme.Background
+import com.example.marksapplw.ui.theme.Primary
+import com.example.marksapplw.ui.theme.Accent
+import com.example.marksapplw.ui.theme.CardBg
 
 @Composable
 fun HomeScreen(
@@ -39,16 +47,21 @@ fun HomeScreen(
 
     Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
+            .background(Background)
             .padding(16.dp)
     ) {
 
         // Header
         Text(
-            text = "Good Evening 👋",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
+            text = "Welcome to PrepPro 👋",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+            color = Primary,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
         )
+
 
         Spacer(Modifier.height(6.dp))
 
@@ -99,9 +112,9 @@ fun ExamCard(
         modifier = Modifier
             .width(220.dp)
             .clickable { onClick() },
-        shape = RoundedCornerShape(22.dp),
+        shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(8.dp),
-        colors = CardDefaults.cardColors(containerColor = background)
+        colors = CardDefaults.cardColors(containerColor = CardBg)
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -125,7 +138,7 @@ fun ExamCard(
             Text(
                 text = "$totalQuestions Questions",
                 fontSize = 12.sp,
-                color = Color.Gray
+                color = Accent
             )
         }
     }
@@ -135,8 +148,9 @@ fun ExamCard(
 fun ContinuePracticeCard() {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
+        shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(6.dp),
+        border = BorderStroke(1.dp, Color(0xFFE5E7EB)),
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF4F46E5)
         )

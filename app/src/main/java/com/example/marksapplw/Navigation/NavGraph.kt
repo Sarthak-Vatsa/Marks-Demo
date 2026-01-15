@@ -1,6 +1,7 @@
 package com.example.marksapplw.Navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -13,7 +14,8 @@ import com.example.marksapplw.UserInterface.questions.QuestionsScreen
 
 @Composable //so that it can react to recomposition
 fun AppNavGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    modifier: Modifier = Modifier
 ) {
     //NavHost: A router + screen container
     //It listens to navigation events
@@ -21,7 +23,8 @@ fun AppNavGraph(
     //It manages the back stack
     NavHost(
         navController = navController,
-        startDestination = Routes.HOME
+        startDestination = Routes.HOME,
+        modifier = modifier
     ) {
 
         // Home → Exams
