@@ -8,6 +8,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.marksapplw.UserInterface.PlaceholderScreen
 import com.example.marksapplw.UserInterface.home.HomeScreen
 import com.example.marksapplw.UserInterface.quesDetail.QuestionDetailScreen
 import com.example.marksapplw.UserInterface.questions.QuestionsScreen
@@ -66,6 +67,19 @@ fun AppNavGraph(
                 questionId = questionId
             )
         }
+
+        composable("practice") {
+            PlaceholderScreen("Practice")
+        }
+
+        composable("tests") {
+            PlaceholderScreen("Tests")
+        }
+
+        composable("profile") {
+            PlaceholderScreen("Profile")
+        }
+
     }
 }
 

@@ -62,7 +62,6 @@ fun HomeScreen(
             modifier = Modifier.fillMaxWidth()
         )
 
-
         Spacer(Modifier.height(6.dp))
 
         Text(
